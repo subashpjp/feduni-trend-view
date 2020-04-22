@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-default',
@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./default.component.css']
 })
 export class DefaultComponent implements OnInit {
+  openSideBar = true;
 
-  constructor() { }
+  constructor() {
+
+  }
 
   ngOnInit() {
   }
 
+  sidebarToggler($event: any) {
+    this.openSideBar = !this.openSideBar;
+  }
 }

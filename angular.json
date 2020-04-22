@@ -122,5 +122,10 @@
       }
     }
   },
-  "defaultProject": "feduni-trend-view"
+  "defaultProject": "feduni-trend-view",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
