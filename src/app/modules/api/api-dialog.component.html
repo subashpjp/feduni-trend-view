@@ -1,0 +1,20 @@
+<mat-card>
+  <div fxflex fxLayout="row" fxLayoutAlign="flex-end">
+    <mat-icon (click)="onClose()" style="cursor: pointer;" mattooltip="close dialog">close</mat-icon>
+  </div>
+  <div>
+    <mat-card-title>Add Api</mat-card-title>
+  </div>
+  <form [formGroup]="apiModel" (submit)="onSubmit()">
+    <mat-card-content>
+      <mat-form-field>
+        <input matInput placeholder="api" formControlName="api">
+        <mat-error></mat-error>
+      </mat-form-field>
+    </mat-card-content>
+  <mat-card-footer>
+    <button mat-raised-button color="primary" type="submit">Save</button>
+    <button mat-raised-button color="accent" (click)="onClose()" type="button" style="margin-left: 10px">Cancel</button>
+  </mat-card-footer>
+  </form>
+</mat-card>
