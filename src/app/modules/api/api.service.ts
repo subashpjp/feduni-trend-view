@@ -1,15 +1,18 @@
 import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  constructor() {
+  api = 'http://localhost:8080/api/v1/home';
+
+  constructor(private http: HttpClient) {
   }
 
-  addApi(value) {
-    console.log('I am from service ' + value.api);
-
+  save(value: any) {
+    console.warn('from api service' + value.api);
+    return this.http.post<string>(this.api, value);
   }
 }

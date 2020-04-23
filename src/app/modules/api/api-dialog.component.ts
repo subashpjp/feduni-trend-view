@@ -29,7 +29,7 @@ export class ApiDialogComponent implements OnInit {
   onSubmit() {
     // console.warn(this.apiModel.value);
     this.onClose();
-    this.apiService.addApi(this.apiModel.value);
+    this.apiService.save(this.apiModel.value).subscribe(result => console.log('data from backed' + result));
   }
 
 
