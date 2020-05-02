@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MatDialogRef} from '@angular/material';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ApiService} from './api.service';
+import {AllIndiaConsumerPriceIndexRuralUrbanDocument} from '../../SectorDto/AllIndiaConsumerPriceIndexRuralUrban/AllIndiaConsumerPriceIndexRuralUrbanDocument';
 
 @Component({
   selector: 'app-api-dialog',
@@ -18,7 +19,8 @@ export class ApiDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.apiModel = this.fb.group({
-      api: ['', Validators.required]
+      url: ['', Validators.required],
+      sector: ['', Validators.required]
     });
   }
 
@@ -29,7 +31,8 @@ export class ApiDialogComponent implements OnInit {
   onSubmit() {
     // console.warn(this.apiModel.value);
     this.onClose();
-    this.apiService.save(this.apiModel.value).subscribe(result => console.log('data from backed' + result));
+    this.apiService.save(this.apiModel.value).subscribe((data: AllIndiaConsumerPriceIndexRuralUrbanDocument) =>
+      console.log(data));
   }
 
 

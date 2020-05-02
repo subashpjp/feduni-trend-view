@@ -1,14 +1,35 @@
 <div>
-  <!--<form [formGroup]="apiForm">-->
-   <!--<mat-form-field>-->
-     <!--<mat-label>API</mat-label>-->
-     <!--<input matInput placeholder="api.gov.data.in?apikey" formControlName="api">-->
-   <!--</mat-form-field>-->
-  <!--</form>-->
   <button mat-raised-button color="primary" (click)=" openDialog()">Add API</button>
 </div>
-<span class="api-list"></span>
-<mat-divider></mat-divider>
 <div class="api-list">
-  list section
+  <h3>Local Api</h3>
+  <mat-grid-list cols="3" gutterSize="10px">
+    <mat-grid-tile *ngFor="let r of pageData.data">
+      <mat-card class="card-cover">
+        <a [routerLink]="['/api/details',r.id]"><h4 class="card-header">
+          {{r.title}}
+        </h4></a>
+        <mat-card-subtitle>
+          <mat-icon class="icon-subtitle">library_books</mat-icon>
+          {{r.desc}}</mat-card-subtitle>
+
+        <mat-card-content>
+          <p>Sector: Economy,Prices,Commerce</p>
+        </mat-card-content>
+
+        <mat-card-actions>
+          <button mat-icon-button>
+            <mat-icon class="icon-visual">bar_chart</mat-icon>
+            Visual Access
+          </button>
+
+        </mat-card-actions>
+        <mat-divider></mat-divider>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>
+
+
+
+

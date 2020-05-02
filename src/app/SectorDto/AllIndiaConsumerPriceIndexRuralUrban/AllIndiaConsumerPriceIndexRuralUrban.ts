@@ -1,0 +1,32 @@
+export interface AllIndiaConsumerPriceIndexRuralUrban {
+  id: string;
+  sector: string[];
+  year: string;
+  __month: string;
+  cereals_and_products: string;
+  meat_and_fish: string;
+  egg: string;
+  milk_and_products: string;
+  oils_and_fats: string;
+  fruits: string;
+  vegetables: string;
+  pulses_and_products: string;
+  sugar_and_confectionery: string;
+  spices: string;
+  non_alcoholic_beverages: string;
+  prepared_meals_snacks_sweets_etc_: string;
+  food_and_beverages: string;
+  pan_tobacco_and_intoxicants: string;
+  clothing: string;
+  footwear: string;
+  clothing_and_footwear: string;
+  fuel_and_light: string;
+  household_goods_and_services: string;
+  health: string;
+  transport_and_communication: string;
+  recreation_and_amusement: string;
+  education: string;
+  personal_care_and_effects: string;
+  miscellaneous: string;
+  general_index: string;
+}

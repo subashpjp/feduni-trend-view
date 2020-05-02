@@ -1,3 +1,36 @@
 .api-list{
   padding: 20px;
 }
+.card-cover {
+  padding: 15px 15px 15px 15px;
+  margin: 15px 15px 15px 15px;
+  width: 100%;
+  a{
+    text-decoration: none;
+  }
+}
+.card-header {
+  padding-top: 20px;
+  color: #536DFE;
+}
+.card-title-a{
+    text-decoration: none;
+    color:#6200ee;
+    font-size: 20px;
+    font-family:Roboto,"Helvetica Neue",sans-serif;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;box-sizing:border-box;
+
+}
+.icon-title {
+  color: #F9aa33;
+  font-size: 18px;
+}
+.icon-subtitle {
+  font-size: 14px;
+  color: #F9aa33;
+}
+.icon-visual {
+  font-size: 28px;
+  color: #F9aa33;
+}
+
