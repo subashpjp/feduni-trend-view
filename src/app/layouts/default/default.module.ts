@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import {DefaultComponent} from './default.component';
 import {DashboardComponent} from '../../modules/dashboard/dashboard.component';
 import {RouterModule} from '@angular/router';
-import {PostsComponent} from '../../modules/posts/posts.component';
 import {SharedModule} from '../../shared/shared.module';
 import {
   MatButtonModule,
@@ -23,15 +22,18 @@ import {HttpClientModule} from '@angular/common/http';
 import {MatSelectModule} from '@angular/material/select';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {ApiDetailsComponent} from '../../modules/api-details/api-details.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {SectorComponent} from '../../modules/sector/sector.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
     DefaultComponent,
     DashboardComponent,
-    PostsComponent,
     ApiComponent,
     ApiDialogComponent,
-    ApiDetailsComponent
+    ApiDetailsComponent,
+    SectorComponent
   ],
   imports: [
     CommonModule,
@@ -50,7 +52,9 @@ import {ApiDetailsComponent} from '../../modules/api-details/api-details.compone
     MatSelectModule,
     MatTooltipModule,
     FlexLayoutModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSnackBarModule,
+    MatPaginatorModule
   ],
   exports: [
     SharedModule

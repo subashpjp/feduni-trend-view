@@ -2,9 +2,9 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {DefaultComponent} from './layouts/default/default.component';
 import {DashboardComponent} from './modules/dashboard/dashboard.component';
-import {PostsComponent} from './modules/posts/posts.component';
 import {ApiComponent} from './modules/api/api.component';
 import {ApiDetailsComponent} from './modules/api-details/api-details.component';
+import {SectorComponent} from './modules/sector/sector.component';
 
 const routes: Routes = [
   {
@@ -15,8 +15,8 @@ const routes: Routes = [
       component: DashboardComponent
     },
       {
-        path: 'posts',
-        component: PostsComponent
+        path: 'sector',
+        component: SectorComponent
       },
       {
         path: 'api',

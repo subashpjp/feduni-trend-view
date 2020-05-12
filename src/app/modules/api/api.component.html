@@ -1,20 +1,30 @@
 <div>
   <button mat-raised-button color="primary" (click)=" openDialog()">Add API</button>
 </div>
+
 <div class="api-list">
-  <h3>Local Api</h3>
-  <mat-grid-list cols="3" gutterSize="10px">
-    <mat-grid-tile *ngFor="let r of pageData.data">
+  <h4>Filter</h4>
+  <mat-form-field style="padding: 0px 40px 0px 0px">
+    <mat-select [(ngModel)]="sectorValue" (ngModelChange)="fetchPageDataBySector()">
+      <mat-option *ngFor="let s of sector" [value]="s.key">
+        {{s.value}}
+      </mat-option>
+
+    </mat-select>
+  </mat-form-field>
+  <mat-grid-list cols="3" gutterSize="10px" rowHeight="2:2">
+    <mat-grid-tile *ngFor="let page of pageResponse.data">
       <mat-card class="card-cover">
-        <a [routerLink]="['/api/details',r.id]"><h4 class="card-header">
-          {{r.title}}
+        <a ><h4 class="card-header">
+          {{page.commonDocument.title}}
         </h4></a>
         <mat-card-subtitle>
           <mat-icon class="icon-subtitle">library_books</mat-icon>
-          {{r.desc}}</mat-card-subtitle>
+          Orginization Type:  {{page.commonDocument.organization_type}}</mat-card-subtitle>
 
         <mat-card-content>
-          <p>Sector: Economy,Prices,Commerce</p>
+          Sector: <span *ngFor=" let s of page.commonDocument.sector">{{s.sector}}, </span>
+
         </mat-card-content>
 
         <mat-card-actions>
@@ -22,13 +32,16 @@
             <mat-icon class="icon-visual">bar_chart</mat-icon>
             Visual Access
           </button>
-
         </mat-card-actions>
-        <mat-divider></mat-divider>
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
 </div>
+<div class="mat-paginator-position">
+  <mat-paginator [pageSizeOptions]="[5,10,15]"></mat-paginator>
+</div>
+
+
 
 
 

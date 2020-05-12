@@ -9,22 +9,24 @@
     <mat-card-content>
       <mat-form-field style="padding: 0px 40px 0px 0px">
         <mat-label>choose Sector</mat-label>
-        <mat-select>
-          <mat-option value="/all-india-consumer-price-index/" formControlName="sector">1</mat-option>
-          <mat-option value="/all-india-consumer-price-index/">2</mat-option>
-          <mat-option value="/all-india-consumer-price-index/">3</mat-option>
-          <mat-option value="/all-india-consumer-price-index/">4</mat-option>
+        <mat-select formControlName="sector">
+          <mat-option *ngFor="let s of sector" [value]="s.key">
+            {{s.value}}
+          </mat-option>
         </mat-select>
+        <mat-error formControlName="sector">Select Sector!</mat-error>
       </mat-form-field>
       <mat-form-field>
         <input matInput placeholder="api" formControlName="url">
+        <mat-error formControlName="url">Url Required!</mat-error>
         <mat-error></mat-error>
       </mat-form-field>
 
     </mat-card-content>
-  <mat-card-footer>
-    <button mat-raised-button color="primary" type="submit">Save</button>
-    <button mat-raised-button color="accent" (click)="onClose()" type="button" style="margin-left: 10px">Cancel</button>
-  </mat-card-footer>
+    <mat-card-footer>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!apiModel.valid">Save</button>
+      <button mat-raised-button color="accent" (click)="onClose()" type="button" style="margin-left: 10px">Cancel
+      </button>
+    </mat-card-footer>
   </form>
 </mat-card>
