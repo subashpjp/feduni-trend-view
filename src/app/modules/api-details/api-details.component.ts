@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {BaseurlService} from '../../baseurl.service';
+import {ApiDetailsService} from './api-details.service';
+import {OneResponse} from '../../SectorDto/pageResponse/OneResponse';
 
 @Component({
   selector: 'app-api-details',
@@ -6,11 +10,42 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./api-details.component.css']
 })
 export class ApiDetailsComponent implements OnInit {
+  id: string;
+  sector: string;
+  oneResponse: OneResponse;
+  object = Object;
 
-  constructor() { }
+  constructor(private activeRoute: ActivatedRoute,
+              private detailsService: ApiDetailsService) {
+  }
 
   ngOnInit(): void {
-    console.log('d');
+    this.activateRoute();
+    this.findOneById();
+  }
+
+  activateRoute() {
+    this.activeRoute.paramMap.subscribe(params => {
+      this.id = params.get('id');
+      this.sector = params.get('sector');
+      // console.log('id ' + this.id);
+      // console.log('id ' + this.id);
+    });
+  }
+
+  findOneById() {
+    this.detailsService.findOneById(this.sector, this.id).subscribe(
+      (result: OneResponse) => {
+        this.oneResponse = result;
+        console.log(this.oneResponse);
+
+        // for (let i = 0; i < this.oneResponse.records.length; i++) {
+        //   for (let key of Object.keys(this.oneResponse.records[i])) {
+        //     // console.log(this.oneResponse.records[i][key]);
+        //   }
+        // }
+      }
+    );
   }
 
 }

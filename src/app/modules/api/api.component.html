@@ -15,7 +15,7 @@
   <mat-grid-list cols="3" gutterSize="10px" rowHeight="2:2">
     <mat-grid-tile *ngFor="let page of pageResponse.data">
       <mat-card class="card-cover">
-        <a ><h4 class="card-header">
+        <a [routerLink]="['details',page.id,sectorValue]"><h4 class="card-header">
           {{page.commonDocument.title}}
         </h4></a>
         <mat-card-subtitle>
@@ -28,7 +28,7 @@
         </mat-card-content>
 
         <mat-card-actions>
-          <button mat-icon-button>
+          <button mat-icon-button [routerLink]="['details',page.id,sectorValue]">
             <mat-icon class="icon-visual">bar_chart</mat-icon>
             Visual Access
           </button>

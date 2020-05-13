@@ -25,6 +25,8 @@ import {ApiDetailsComponent} from '../../modules/api-details/api-details.compone
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {SectorComponent} from '../../modules/sector/sector.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {ClarityModule} from '@clr/angular';
+import {ApiDetailsService} from '../../modules/api-details/api-details.service';
 
 @NgModule({
   declarations: [
@@ -54,12 +56,13 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     FlexLayoutModule,
     MatGridListModule,
     MatSnackBarModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    ClarityModule
   ],
   exports: [
     SharedModule
   ],
-  providers: [ApiService],
+  providers: [ApiService, ApiDetailsService],
   entryComponents: [ApiComponent]
 })
 export class DefaultModule { }

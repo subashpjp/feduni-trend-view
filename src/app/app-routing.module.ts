@@ -23,7 +23,7 @@ const routes: Routes = [
         component: ApiComponent
       },
       {
-        path: 'api/details/:id',
+        path: 'api/details/:id/:sector',
         component: ApiDetailsComponent
       }
     ]
