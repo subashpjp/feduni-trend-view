@@ -8,13 +8,15 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {RouterModule} from '@angular/router';
 import { AreaComponent } from './widget/area/area.component';
 import {HighchartsChartModule} from 'highcharts-angular';
+import { ConsumerPriceIndexComponent } from './widget/consumer-price-index/consumer-price-index.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
-    AreaComponent
+    AreaComponent,
+    ConsumerPriceIndexComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,8 @@ import {HighchartsChartModule} from 'highcharts-angular';
     HeaderComponent,
     SidebarComponent,
     FooterComponent,
-    AreaComponent
+    AreaComponent,
+    ConsumerPriceIndexComponent
   ]
 })
 export class SharedModule {

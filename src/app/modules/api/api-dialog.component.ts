@@ -5,6 +5,7 @@ import {ApiService} from './api.service';
 import {AllIndiaConsumerPriceIndexRuralUrbanDocument} from '../../SectorDto/AllIndiaConsumerPriceIndexRuralUrban/AllIndiaConsumerPriceIndexRuralUrbanDocument';
 import {SectorDto} from '../../SectorDto/SectorDto';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -19,7 +20,8 @@ export class ApiDialogComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<ApiDialogComponent>,
               private fb: FormBuilder,
               private apiService: ApiService,
-              private snackBar: MatSnackBar) {
+              private snackBar: MatSnackBar,
+              private router: Router) {
     this.apiService.getAllSector().subscribe(
       (data: SectorDto[]) => {
         this.sector = data;
@@ -39,12 +41,14 @@ export class ApiDialogComponent implements OnInit {
   }
 
   onSubmit() {
-    // console.warn(this.apiModel.value);
+    this.router.navigate(['/api']);
     this.onClose();
-    this.apiService.save(this.apiModel.value).subscribe((data: AllIndiaConsumerPriceIndexRuralUrbanDocument) =>
-      console.log(data));
-    this.snackBar.open('Data Saved Successfully', 'close', {
-      duration: 2000,
+    console.warn(this.apiModel.value);
+    this.apiService.save(this.apiModel.value).subscribe((data: AllIndiaConsumerPriceIndexRuralUrbanDocument) => {
+      this.snackBar.open('Data Saved Successfully', 'close', {
+        duration: 3000,
+      });
+      this.router.navigate(['/api']);
     });
   }
 

@@ -1,31 +1,38 @@
-<div class="main-container">
-  <header class="header header-5">
-    <div class="branding">
-      <h3 class="header-heading">{{oneResponse.commonDocument['title']}}</h3>
-    </div>
-  </header>
-  <div class="content-container">
-    <div class="content-area">
-      <div class="btn-group btn-primary">
-        <button class="btn">Data Instance</button>
-        <button class="btn">Visualization</button>
-      </div>
-      <clr-datagrid>
-        <clr-dg-column *ngFor="let field of oneResponse.field">
-          {{field['name']}}
-        </clr-dg-column>
-        <clr-dg-row *ngFor="let i of oneResponse.records">
-            <clr-dg-cell *ngFor="let key of object.keys(i)">{{i[key]}}</clr-dg-cell>
-        </clr-dg-row>
-
-
-        <!--        <clr-dg-footer>{{users.length}} users</clr-dg-footer>-->
-      </clr-datagrid>
-      <!--      <p *ngFor="let i of oneResponse.records">-->
-      <!--        <span *ngFor="let key of object.keys(i)">-->
-      <!--          {{i[key]}}-->
-      <!--        </span>-->
-      <!--      </p>-->
-    </div>
-  </div>
+<div *ngIf="spinner">
+  <span class="spinner spinner-sm"></span> <span>Loading ....</span>
 </div>
+<header class="header header-5">
+  <div class="branding">
+    <h3 class="header-heading">{{oneResponse.commonDocument['title']}}</h3>
+  </div>
+</header>
+<div class="btn-group btn-primary">
+  <button class="btn">Data Instance</button>
+  <button class="btn" routerLink="/">Visualization</button>
+</div>
+
+<clr-datagrid>
+  <clr-dg-column *ngFor="let field of oneResponse.field">
+    {{field['name']}}
+  </clr-dg-column>
+  <clr-dg-row *ngFor="let i of oneResponse.records">
+    <clr-dg-cell *ngFor="let key of object.keys(i)">{{i[key]}}</clr-dg-cell>
+  </clr-dg-row>
+
+
+  <!--        <clr-dg-footer>{{users.length}} users</clr-dg-footer>-->
+  <!--  <clr-dg-footer>-->
+  <!--    <clr-dg-pagination #pagination [clrDgPageSize]="10">-->
+  <!--      <clr-dg-page-size [clrPageSizeOptions]="[10,20,50,100]">Users per page</clr-dg-page-size>-->
+  <!--      {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}-->
+  <!--      of {{pagination.totalItems}} users-->
+  <!--    </clr-dg-pagination>-->
+  <!--  </clr-dg-footer>-->
+</clr-datagrid>
+<!--      <p *ngFor="let i of oneResponse.records">-->
+<!--        <span *ngFor="let key of object.keys(i)">-->
+<!--          {{i[key]}}-->
+<!--        </span>-->
+<!--      </p>-->
+
+

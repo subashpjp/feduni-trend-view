@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {BaseurlService} from '../../baseurl.service';
 import {ApiDetailsService} from './api-details.service';
@@ -14,6 +14,7 @@ export class ApiDetailsComponent implements OnInit {
   sector: string;
   oneResponse: OneResponse;
   object = Object;
+  spinner = true;
 
   constructor(private activeRoute: ActivatedRoute,
               private detailsService: ApiDetailsService) {
@@ -23,6 +24,7 @@ export class ApiDetailsComponent implements OnInit {
     this.activateRoute();
     this.findOneById();
   }
+
 
   activateRoute() {
     this.activeRoute.paramMap.subscribe(params => {
@@ -37,7 +39,8 @@ export class ApiDetailsComponent implements OnInit {
     this.detailsService.findOneById(this.sector, this.id).subscribe(
       (result: OneResponse) => {
         this.oneResponse = result;
-        console.log(this.oneResponse);
+        console.log(result);
+        this.showSpinner();
 
         // for (let i = 0; i < this.oneResponse.records.length; i++) {
         //   for (let key of Object.keys(this.oneResponse.records[i])) {
@@ -45,7 +48,13 @@ export class ApiDetailsComponent implements OnInit {
         //   }
         // }
       }
-    );
+  )
+    ;
   }
+
+  showSpinner() {
+    this.spinner = !this.spinner;
+  }
+
 
 }
