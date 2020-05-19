@@ -22,7 +22,7 @@ export class ConsumerPriceIndexComponent implements OnInit {
         spacingLeft: 10,
         spacingRight: 10,
         // Explicitly tell the width and height of a chart
-        width: 1000,
+        width: 1200,
         height: 600
       },
       title: {
